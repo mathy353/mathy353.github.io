@@ -30,3 +30,8 @@ nav{
 .card-title{
     text-align: center;
 }
+
+#button{
+  color: var(--txtcolor);
+  background-color: var(--flavordkblu);
+}
