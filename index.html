@@ -40,10 +40,54 @@
       </div>
     </div>
     <div class="row">
-      <a class="waves-effect waves-light btn-large col s3 offset-s2" id="button" style="color:#FFFAFF">Begin</a>
-      <a class="waves-effect waves-light btn-large col s3 offset-s2" id="button" style="color:#FFFAFF">Pause / End</a>
+      <a class="waves-effect waves-light btn-large col s3 offset-s2" id="button" style="color:#FFFAFF" onclick="begRand();">Begin</a>
+      <a class="waves-effect waves-light btn-large col s3 offset-s2" id="button" style="color:#FFFAFF" onclick="endRand();">Pause / End</a>
+    </div>
+    <div class="row">
+      <div class="col s12 offset-s2">
+        <div class="col s3">
+          <h3 id="num1" style="text-align: right;" class="flow-text">NUM</h3>
+        </div>
+        <div class="col s2">
+          <h2 id="equalSign" style="text-align: center;">≠</h2>
+        </div>
+        <div class="col s3">
+          <h3 id="num2" style="text-align: left;" class="flow-text">NUM</h3>
+        </div>
+      </div>
     </div>
     <!-- The brains of this site lol !-->
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+    var max = document.getElementById('num').value
+    var thing = false;
+
+    function begRand(max){
+      console.log("called")
+      while(true){
+        if(thing){
+          break;
+          console.log("ended")
+        }
+        else{
+          var random1 = Math.floor(Math.random() * max);
+          var random2 = Math.floor(Math.random() * max);
+          console.log(random1); console.log(random2);
+
+          document.getElementById("num1").innerHTML = random1;
+          document.getElementById("num2").innerHTML = random2;
+
+          console.log("some randoms")
+          if(random1 == random2){
+            document.getElementById("equalSign").innerHTML = "=";
+            break;
+          }
+        }
+      }
+    }
+
+    function endRand(){
+      thing = true;
+    }
+  </script>
   </body>
 </html>
