@@ -1,4 +1,9 @@
-var max = document.getElementById('num').value
+var max
+
+finction onload(){
+  max = document.getElementById('num').value;
+  console.log(max);
+}
 
 function begRand(max){
   while(true){
