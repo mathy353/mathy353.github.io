@@ -14,5 +14,30 @@
       <img id="earth" src="media/NROL_Earth.png">
       <img id="space" src="media/NROL_Space.png">
     </div>
+    <div id="textBox">
+      <table id="valTable"></table>
+    </div>
   </body>
+  <script>
+  function toFixed(value, n) {
+    const v = value.toString().split('.');
+    if (n <= 0) return v[0];
+    let f = v[1] || '';
+    if (f.length > n) return `${v[0]}.${f.substr(0,n)}`;
+    while (f.length < n) f += '0';
+    return `${v[0]}.${f}`
+  }
+
+var table = document.getElementById("valTable");
+for(i = 0; i < 3; i++){
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var a = (Math.random()*360 - 180)
+  var b = (Math.random()*360 - 180)
+  cell1.innerHTML = toFixed(a, 10);
+  cell2.innerHTML = toFixed(b, 10);
+}
+
+  </script>
 </html>

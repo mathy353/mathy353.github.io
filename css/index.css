@@ -69,3 +69,24 @@ animation: fadein 2s;
 animation-delay: 1s;
 animation-fill-mode: forwards;
 }
+
+#textBox{
+position: absolute;
+display: block;
+width: 50%;
+margin-left: 30%;
+margin-top: 40%;
+
+color: #FFF;
+letter-spacing: 5px;
+text-align: center;
+
+opacity: 0;
+animation: fadein 5s;
+animation-delay: 10s;
+animation-fill-mode: forwards;
+}
+
+#valTable{
+border-spacing: 50px 0;
+}
