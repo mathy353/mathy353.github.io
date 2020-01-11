@@ -276,7 +276,7 @@
       firebase.analytics();
     </script>
 
-    <script id="pull locations from bikeshare for now">
+    <script id="pull locations from bikeshare">
 
     function showBikes(map, locations){                                         //function to place bikeshare locations from firebase on the map with a custom image
       for(var i = 0; i < locations.length; i++){                                //for every item in the locatons list
@@ -301,9 +301,42 @@
     });
 
     </script>
+    <script id="use the google maps geolocation and places APIs in order to get the user's location and return close bus stops">
 
-  <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+    function showBusStops(m, la, ln){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+             // Typical action to be performed when the document is ready:
+             console.log(xhttp.responseText);
+          }
+      };
+      console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=" + la + "," + ln + "&type=bus_station&key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc");
+      xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=" + la + "," + ln + "&type=bus_station&key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc", true);
+      xhttp.send();
+      //loop and show markers with icon
+    }
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var lat = pos.coords.latitude; var lng = pos.coords.longitude;
+      map.setCenter({lat,lng});
+      showBusStops(map, lat, lng);
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+    </script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
   </body>
   </html>
