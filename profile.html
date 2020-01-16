@@ -158,7 +158,7 @@
       console.log(document.cookie.split("; "));
       var userId;
       for(var i; i < cookies.length; i++){
-        if(cookies[i].includes("user")){
+        if(cookies[i][0] == "u"){
           console.log(cookies[i])
           console.log(cookies[i].substr(5))
           userId = cookies[i].substr(5);
