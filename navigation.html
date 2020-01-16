@@ -254,9 +254,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-analytics.js"></script>
 
     <script id="initialize firebase here">
@@ -304,16 +301,7 @@
     <script id="use the google maps geolocation and places APIs in order to get the user's location and return close bus stops">
 
     function showBusStops(m, la, ln){
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-             // Typical action to be performed when the document is ready:
-             console.log(xhttp.responseText);
-          }
-      };
-      console.log("https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=" + la + "," + ln + "&type=bus_station&key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc");
-      xhttp.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=" + la + "," + ln + "&type=bus_station&key=AIzaSyC7zQjQVK6k2btSIrJNDA_D0AJyFdIjQOc", true);
-      xhttp.send();
+      //make request for bus stops around our geo lat/lng
       //loop and show markers with icon
     }
 
@@ -324,6 +312,10 @@
     };
 
     function success(pos) {
+      console.log('Your current position is:');
+      console.log(`Latitude : ${pos.coords.latitude}`);
+      console.log(`Longitude: ${pos.coords.longitude}`);
+      console.log(`More or less ${pos.coords.accuracy} meters.`);
       var lat = pos.coords.latitude; var lng = pos.coords.longitude;
       map.setCenter({lat,lng});
       showBusStops(map, lat, lng);
