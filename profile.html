@@ -30,7 +30,7 @@
     </div>
 
     <br><br><br>
-    <div class="amber white-text" id="loginHolder" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10" onload="checkCookie();">
+    <div class="amber white-text" id="loginHolder" style="border-radius: 30px; border-style: solid; border-color: white; border-width: 10">
       <h3 class="center-align">Register</h3>
       <div class="row">
         <form class="col s12" id="loginData">
@@ -154,6 +154,7 @@
       userLoad(userId.toString());
     }
     function checkCookie(){
+      console.log("Running!");
       var cookies = document.cookie.split("; ");
       var userId;
       for(var i; i < cookies.length; i++){
@@ -172,6 +173,7 @@
         document.getElementById("loginHolder").style = "display: none; border-radius: 30px; border-style: solid; border-color: white; border-width: 10";
       }
     }
+    window.onload = checkCookie();
     </script>
 
     <!--JavaScript at end of body for optimized loading-->
