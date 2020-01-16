@@ -157,7 +157,7 @@
       var cookies = document.cookie.split("; ");
       console.log(document.cookie.split("; "));
       var userId = 69;
-      for(var i; i < cookies.length; i++){
+      for(var i = 0; i < cookies.length; i++){
         console.log(cookies[i]);
         if(cookies[i][0] == "u"){
           console.log(cookies[i].substr(5))
