@@ -1,0 +1,9 @@
+{
+  "name": "RIDR",
+  "short_name": "RIDR",
+  "theme_color": "#ffc107",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/index.html"
+}
